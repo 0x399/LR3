@@ -21,30 +21,35 @@ public class Droid {
 
     public int attack(Droid defender){
         int damage = ThreadLocalRandom.current().nextInt(this.attack_min, this.attack_max + 1);
+        System.out.println(this.name + " deals " +(damage - defender.armor) + " damage to " + defender.name);
         defender.health -= (damage - defender.armor);
-        return damage;
+        return defender.health;
     }
 
     public int heal(){
-        int heal = ThreadLocalRandom.current().nextInt(3, 7);
-        this.health += heal;
-        int ener = ThreadLocalRandom.current().nextInt(2, 5);
+        int ener = ThreadLocalRandom.current().nextInt(3, 5);
         this.energy -= ener;
+        int heal = ThreadLocalRandom.current().nextInt(3, 7);
+        if(this.energy > 0){
+        this.health += heal;}
         System.out.println(this.name + " healed by " + heal + " damage using " + ener + " energy");
         return this.health;
     }
 
     public int restoreEnergy(){
-        this.energy += ThreadLocalRandom.current().nextInt(1, 4);
+        int ener = ThreadLocalRandom.current().nextInt(1, 4);
+        System.out.println(this.name + " restored " + ener + " energy ");
+        this.energy += ener;
         return this.energy;
     }
 
     @Override
     public String toString() {
-        return "Name: " +
-                name +
-                ", HP:'" + health + '\''
-                ;
+        return "Droid{" +
+                "health=" + health +
+                ", energy=" + energy +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
 
