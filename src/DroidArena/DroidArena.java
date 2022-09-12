@@ -17,6 +17,7 @@ public class DroidArena {
         System.out.println(attacker);
         System.out.println("Enemy droid:");
         System.out.println(defender);
+        System.out.println("______________________________________");
         System.out.println("1 to attack, 2 to regenerate HP, 3 to regenerate energy");
         do {
             if(turn % 2 != 0){
