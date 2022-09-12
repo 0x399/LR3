@@ -11,7 +11,13 @@ public class DroidArena {
     public static Droid battle(Droid FirstDroid, Droid SecondDroid){
         Droid attacker = FirstDroid;
         Droid defender = SecondDroid;
+        int initial_hp = SecondDroid.health;
         Droid tmp;
+        System.out.println("Your droid:");
+        System.out.println(attacker);
+        System.out.println("Enemy droid:");
+        System.out.println(defender);
+        System.out.println("1 to attack, 2 to regenerate HP, 3 to regenerate energy");
         do {
             if(turn % 2 != 0){
                 int input = sc.nextInt();
@@ -22,7 +28,11 @@ public class DroidArena {
                     default -> System.out.println("Turn skipped.");
                 }
             }
-            else{attacker.attack(defender);}
+            else{
+                if((attacker.health < initial_hp/2) & attacker.energy > 1)
+                    attacker.heal();
+                else {
+                    attacker.attack(defender);}}
             tmp = attacker;
             attacker = defender;
             defender = tmp;

@@ -45,11 +45,9 @@ public class Droid {
 
     @Override
     public String toString() {
-        return "Droid{" +
-                "health=" + health +
-                ", energy=" + energy +
-                ", name='" + name + '\'' +
-                '}';
+        return "Droid" +
+                " Name: " + name + "; HP: " + health +
+                "; Energy: " + energy;
     }
 }
 
